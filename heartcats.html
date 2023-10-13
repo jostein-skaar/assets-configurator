@@ -236,13 +236,24 @@
           }
         });
 
-        partHeart.addEventListener('click', function () {
+        function handlePickColorHeart() {
           pickColor(partHeart);
-        });
-
-        partNose.addEventListener('click', function () {
+        }
+        function handlePickColorNose() {
           pickColor(partNose);
-        });
+        }
+        partHeart.addEventListener('click', handlePickColorHeart);
+        partHeart.addEventListener('touchstart', handlePickColorHeart);
+        partNose.addEventListener('click', handlePickColorNose);
+        partNose.addEventListener('touchstart', handlePickColorNose);
+
+        // partHeart.addEventListener('click', function () {
+        //   pickColor(partHeart);
+        // });
+
+        // partNose.addEventListener('click', function () {
+        //   pickColor(partNose);
+        // });
 
         saveButton.addEventListener('click', function () {
           const currentColors = {
