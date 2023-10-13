@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hjertekatter</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: lightblue;
+      }
+      .container {
+        width: 1000px;
+        margin: auto;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+      .left {
+        width: 700px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .right {
+        width: 300px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+      }
+      button {
+        font-size: larger;
+        margin-top: 20px;
+      }
+      #heartList {
+        display: flex;
+        flex-direction: column;
+      }
+      .preview-number {
+        font-weight: bold;
+        padding-bottom: 5px;
+      }
+      .error-message {
+        color: red;
+        margin-top: 10px;
+      }
+      .button-delete {
+        font-size: smaller;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <svg
+          width="512"
+          height="512"
+          viewBox="0 0 512 512"
+          version="1.1"
+          id="svg1"
+          inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+          sodipodi:docname="heartcats.svg"
+          xml:space="preserve"
+          xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+          xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:svg="http://www.w3.org/2000/svg"
+        >
+          &#10;
+          <sodipodi:namedview
+            id="namedview1"
+            pagecolor="#ffffff"
+            bordercolor="#000000"
+            borderopacity="0.25"
+            inkscape:showpageshadow="2"
+            inkscape:pageopacity="0.0"
+            inkscape:pagecheckerboard="true"
+            inkscape:deskcolor="#d1d1d1"
+            inkscape:document-units="px"
+            inkscape:zoom="1.0449705"
+            inkscape:cx="73.686291"
+            inkscape:cy="352.64153"
+            inkscape:window-width="2560"
+            inkscape:window-height="1369"
+            inkscape:window-x="1912"
+            inkscape:window-y="1072"
+            inkscape:window-maximized="1"
+            inkscape:current-layer="layer1"
+          />&#10;
+          <defs id="defs1" />
+          &#10;
+          <g inkscape:label="Heartcat" inkscape:groupmode="layer" id="layer1">
+            &#10;
+            <path
+              style="display: inline; fill-opacity: 1; stroke: #000000; stroke-width: 5; stroke-dasharray: none; stroke-opacity: 1"
+              d="M 138.16424,2.5480171 C 100.5316,3.4955291 62.300183,18.634292 37.356166,59.167386 -41.691009,187.61608 38.356833,278.8839 38.356833,278.8839 L 256,508.367 473.64316,278.8839 c 0,0 80.04785,-91.26782 1.00067,-219.716514 C 413.24317,-40.606379 271.34123,13.492746 256,54.354252 246.89115,30.09273 193.16579,1.1631911 138.16424,2.5480171 Z"
+              class="heart"
+              fill="#808080"
+              sodipodi:nodetypes="ccssc"
+              inkscape:label="heart"
+              id="path1"
+            />
+            &#10;
+            <g id="g5" transform="matrix(1.0456331,0,0,1.177898,5.7253996,-45.312468)" style="stroke-width: 0.901065">
+              &#10;
+              <g id="g3" style="stroke-width: 0.901065">
+                &#10;
+                <circle
+                  style="fill: #000000; fill-opacity: 1; stroke-width: 1.12111"
+                  id="path2"
+                  cx="121.94889"
+                  cy="153.09869"
+                  r="31.552252"
+                />
+                &#10;
+                <ellipse
+                  style="fill: #ffffff; fill-opacity: 1; stroke-width: 0.976112"
+                  id="path3"
+                  cx="157.63611"
+                  cy="105.50431"
+                  rx="12.189791"
+                  ry="15.516784"
+                  transform="matrix(0.9542455,0.2990243,-0.3640741,0.93136999,0,0)"
+                />
+                &#10;
+              </g>
+              &#10;
+              <g id="g4" transform="translate(234.80668,-1.3533526)" style="stroke-width: 0.901065">
+                &#10;
+                <circle
+                  style="fill: #000000; fill-opacity: 1; stroke-width: 1.12111"
+                  id="circle3"
+                  cx="121.94889"
+                  cy="153.09869"
+                  r="31.552252"
+                />
+                &#10;
+                <ellipse
+                  style="fill: #ffffff; fill-opacity: 1; stroke-width: 0.976112"
+                  id="ellipse3"
+                  cx="157.63611"
+                  cy="105.50431"
+                  rx="12.189791"
+                  ry="15.516784"
+                  transform="matrix(0.9542455,0.2990243,-0.3640741,0.93136999,0,0)"
+                />
+                &#10;
+              </g>
+              &#10;
+            </g>
+            &#10;
+            <path
+              style="display: inline; fill-opacity: 1; stroke: #000000; stroke-width: 5; stroke-dasharray: none"
+              d="m 249.0955,224.47284 c -3.44636,-0.0715 -7.02353,1.61235 -9.52176,6.50932 -7.9168,15.51837 -1.08597,27.22851 -1.08597,27.22851 l 18.67227,29.52606 21.13209,-27.34116 c 0,0 7.80905,-10.90656 1.26915,-27.21846 -5.08001,-12.67047 -19.05359,1.29085 -20.67546,6.27672 -0.70292,-3.0518 -4.75316,-14.87649 -9.79016,-14.98097 z"
+              id="nose"
+              sodipodi:nodetypes="ccsscscsc"
+              inkscape:label="nose"
+              class="nose"
+              fill="#808080"
+            />
+            &#10;
+            <path
+              style="fill: none; fill-opacity: 1; stroke: #000000; stroke-width: 5; stroke-dasharray: none"
+              d="m 218.27336,316.0343 c 2.97348,16.3613 39.0756,29.0203 38.56176,-5.5794 -0.48354,-32.5593 -1.0613,-21.52084 -1.06133,-21.5205 l 0.70755,22.71609 c 0,0 6.72177,29.49107 34.6702,3.58676"
+              id="path6"
+              sodipodi:nodetypes="csccc"
+            />
+            &#10;
+          </g>
+          &#10;
+        </svg>
+
+        <button id="save">Lagre</button>
+        <div class="error-message" id="errorMessage" style="display: none">Denne kombinasjonen finnes allerede.</div>
+        <input type="color" id="colorPicker" value="#808080" style="display: none" />
+      </div>
+      <div class="right">
+        <div id="heartList"></div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const errorMessage = document.getElementById('errorMessage');
+        const originalSvg = document.getElementById('svg1');
+        const partHeart = originalSvg.querySelector('.heart');
+        const partNose = originalSvg.querySelector('.nose');
+        const colorPicker = document.getElementById('colorPicker');
+        const saveButton = document.getElementById('save');
+        const heartList = document.getElementById('heartList');
+
+        let selectedElement = null;
+
+        function loadHearts() {
+          const savedHearts = JSON.parse(localStorage.getItem('hearts')) || [];
+          heartList.innerHTML = '';
+          savedHearts
+            .slice()
+            .reverse()
+            .forEach((heart, index) => {
+              const number = savedHearts.length - index;
+              const heartDiv = document.createElement('div');
+              const cloneSvg = originalSvg.cloneNode(true);
+              cloneSvg.setAttribute('id', `preview-svg-${number}`);
+              cloneSvg.setAttribute('width', '100');
+              cloneSvg.setAttribute('height', '100');
+              cloneSvg.querySelector('.heart').setAttribute('fill', heart.heart);
+              cloneSvg.querySelector('.nose').setAttribute('fill', heart.nose);
+              heartDiv.innerHTML = `<div class="preview-number">${number}:</div>`;
+              heartDiv.appendChild(cloneSvg);
+
+              const deleteButton = document.createElement('button');
+              deleteButton.innerHTML = 'Slett';
+              deleteButton.className = 'button-delete';
+              deleteButton.addEventListener('click', function () {
+                savedHearts.splice(savedHearts.length - 1 - index, 1);
+                localStorage.setItem('hearts', JSON.stringify(savedHearts));
+                loadHearts();
+              });
+              heartDiv.appendChild(deleteButton);
+
+              heartList.appendChild(heartDiv);
+            });
+        }
+
+        function pickColor(element) {
+          selectedElement = element;
+          colorPicker.value = element.getAttribute('fill');
+          colorPicker.click();
+        }
+
+        colorPicker.addEventListener('input', function () {
+          if (selectedElement) {
+            selectedElement.setAttribute('fill', colorPicker.value);
+          }
+        });
+
+        partHeart.addEventListener('click', function () {
+          pickColor(partHeart);
+        });
+
+        partNose.addEventListener('click', function () {
+          pickColor(partNose);
+        });
+
+        saveButton.addEventListener('click', function () {
+          const currentColors = {
+            heart: partHeart.getAttribute('fill'),
+            nose: partNose.getAttribute('fill'),
+          };
+          const savedHearts = JSON.parse(localStorage.getItem('hearts')) || [];
+          if (!savedHearts.some((heart) => JSON.stringify(heart) === JSON.stringify(currentColors))) {
+            savedHearts.push(currentColors);
+            localStorage.setItem('hearts', JSON.stringify(savedHearts));
+            loadHearts();
+            errorMessage.style.display = 'none';
+          } else {
+            errorMessage.style.display = 'block';
+          }
+        });
+
+        loadHearts();
+      });
+    </script>
+  </body>
+</html>

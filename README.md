@@ -1,5 +1,3 @@
-# assets-configurator
+# Fargevelging
 
-A fast way for me to let my children create assets with different colors and such.
-
-[Hearts](hearts.html)
+[Hjertekatter](heartcats.html)
