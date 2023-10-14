@@ -48,8 +48,10 @@
       .button-delete {
         font-size: smaller;
       }
-      .left svg {
-        pointer-events: all;
+      .colorpickers input {
+        margin-top: 20px;
+        height: 50px;
+        width: 50px;
       }
     </style>
   </head>
@@ -173,15 +175,12 @@
           </g>
           &#10;
         </svg>
-
-        <div>
-          <button id="changeHeartColor">Endre farge</button>
-          <button id="changeNoseColor">Endre nese</button>
+        <div class="colorpickers">
+          <input type="color" id="heartColorPicker" value="#808080" />
+          <input type="color" id="noseColorPicker" value="#ff0000" />
         </div>
-
         <button id="save">Lagre</button>
         <div class="error-message" id="errorMessage" style="display: none">Denne kombinasjonen finnes allerede.</div>
-        <input type="color" id="colorPicker" value="#808080" style="display: none" />
       </div>
       <div class="right">
         <div id="heartList"></div>
@@ -194,11 +193,10 @@
         const originalSvg = document.getElementById('svg1');
         const partHeart = originalSvg.querySelector('.heart');
         const partNose = originalSvg.querySelector('.nose');
-        const colorPicker = document.getElementById('colorPicker');
+        const heartColorPicker = document.getElementById('heartColorPicker');
+        const noseColorPicker = document.getElementById('noseColorPicker');
         const saveButton = document.getElementById('save');
         const heartList = document.getElementById('heartList');
-
-        let selectedElement = null;
 
         function loadHearts() {
           const savedHearts = JSON.parse(localStorage.getItem('hearts')) || [];
@@ -217,7 +215,6 @@
               cloneSvg.querySelector('.nose').setAttribute('fill', heart.nose);
               heartDiv.innerHTML = `<div class="preview-number">${number}:</div>`;
               heartDiv.appendChild(cloneSvg);
-
               const deleteButton = document.createElement('button');
               deleteButton.innerHTML = 'Slett';
               deleteButton.className = 'button-delete';
@@ -227,66 +224,27 @@
                 loadHearts();
               });
               heartDiv.appendChild(deleteButton);
-
               heartList.appendChild(heartDiv);
             });
         }
 
-        function pickColor(element) {
-          selectedElement = element;
-          colorPicker.value = element.getAttribute('fill');
-          colorPicker.click();
-        }
-
-        originalSvg.addEventListener('touchstart', function (event) {
-          const clickedElement = event.target;
-
-          if (clickedElement.classList.contains('heart')) {
-            console.log('heart');
-            pickColor(partHeart);
-          }
-
-          if (clickedElement.classList.contains('nose')) {
-            console.log('nose');
-            pickColor(partNose);
-          }
+        heartColorPicker.addEventListener('input', function () {
+          partHeart.setAttribute('fill', heartColorPicker.value);
         });
 
-        colorPicker.addEventListener('input', function () {
-          if (selectedElement) {
-            selectedElement.setAttribute('fill', colorPicker.value);
-          }
+        noseColorPicker.addEventListener('input', function () {
+          partNose.setAttribute('fill', noseColorPicker.value);
         });
 
         function handlePickColorHeart() {
-          pickColor(partHeart);
+          heartColorPicker.click();
         }
         function handlePickColorNose() {
-          pickColor(partNose);
+          noseColorPicker.click();
         }
 
-        const changeHeartColorButton = document.getElementById('changeHeartColor');
-        const changeNoseColorButton = document.getElementById('changeNoseColor');
-
-        changeHeartColorButton.addEventListener('click', function () {
-          pickColor(partHeart);
-        });
-
-        changeNoseColorButton.addEventListener('click', function () {
-          pickColor(partNose);
-        });
-        // partHeart.addEventListener('click', handlePickColorHeart);
-        // partHeart.addEventListener('touchstart', handlePickColorHeart);
-        // partNose.addEventListener('click', handlePickColorNose);
-        // partNose.addEventListener('touchstart', handlePickColorNose);
-
-        // partHeart.addEventListener('click', function () {
-        //   pickColor(partHeart);
-        // });
-
-        // partNose.addEventListener('click', function () {
-        //   pickColor(partNose);
-        // });
+        partHeart.addEventListener('click', handlePickColorHeart);
+        partNose.addEventListener('click', handlePickColorNose);
 
         saveButton.addEventListener('click', function () {
           const currentColors = {
