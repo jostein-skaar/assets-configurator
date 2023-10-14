@@ -48,8 +48,9 @@
       .button-delete {
         font-size: smaller;
       }
-      .left svg  {    pointer-events: all;}
-      
+      .left svg {
+        pointer-events: all;
+      }
     </style>
   </head>
   <body>
@@ -244,10 +245,13 @@
         function handlePickColorNose() {
           pickColor(partNose);
         }
-        partHeart.addEventListener('click', handlePickColorHeart);
-        partHeart.addEventListener('touchstart', handlePickColorHeart);
-        partNose.addEventListener('click', handlePickColorNose);
-        partNose.addEventListener('touchstart', handlePickColorNose);
+        // partHeart.addEventListener('click', handlePickColorHeart);
+        // partHeart.addEventListener('touchstart', handlePickColorHeart);
+        // partNose.addEventListener('click', handlePickColorNose);
+        // partNose.addEventListener('touchstart', handlePickColorNose);
+
+        partHeart.addEventListener('pointerdown', handlePickColorHeart);
+        partNose.addEventListener('pointerdown', handlePickColorNose);
 
         // partHeart.addEventListener('click', function () {
         //   pickColor(partHeart);
