@@ -174,6 +174,11 @@
           &#10;
         </svg>
 
+        <div>
+          <button id="changeHeartColor">Endre farge</button>
+          <button id="changeNoseColor">Endre nese</button>
+        </div>
+
         <button id="save">Lagre</button>
         <div class="error-message" id="errorMessage" style="display: none">Denne kombinasjonen finnes allerede.</div>
         <input type="color" id="colorPicker" value="#808080" style="display: none" />
@@ -233,7 +238,7 @@
           colorPicker.click();
         }
 
-        originalSvg.addEventListener('click', function (event) {
+        originalSvg.addEventListener('touchstart', function (event) {
           const clickedElement = event.target;
 
           if (clickedElement.classList.contains('heart')) {
@@ -259,6 +264,17 @@
         function handlePickColorNose() {
           pickColor(partNose);
         }
+
+        const changeHeartColorButton = document.getElementById('changeHeartColor');
+        const changeNoseColorButton = document.getElementById('changeNoseColor');
+
+        changeHeartColorButton.addEventListener('click', function () {
+          pickColor(partHeart);
+        });
+
+        changeNoseColorButton.addEventListener('click', function () {
+          pickColor(partNose);
+        });
         // partHeart.addEventListener('click', handlePickColorHeart);
         // partHeart.addEventListener('touchstart', handlePickColorHeart);
         // partNose.addEventListener('click', handlePickColorNose);
