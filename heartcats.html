@@ -233,6 +233,20 @@
           colorPicker.click();
         }
 
+        originalSvg.addEventListener('click', function (event) {
+          const clickedElement = event.target;
+
+          if (clickedElement.classList.contains('heart')) {
+            console.log('heart');
+            pickColor(partHeart);
+          }
+
+          if (clickedElement.classList.contains('nose')) {
+            console.log('nose');
+            pickColor(partNose);
+          }
+        });
+
         colorPicker.addEventListener('input', function () {
           if (selectedElement) {
             selectedElement.setAttribute('fill', colorPicker.value);
@@ -249,9 +263,6 @@
         // partHeart.addEventListener('touchstart', handlePickColorHeart);
         // partNose.addEventListener('click', handlePickColorNose);
         // partNose.addEventListener('touchstart', handlePickColorNose);
-
-        partHeart.addEventListener('pointerdown', handlePickColorHeart);
-        partNose.addEventListener('pointerdown', handlePickColorNose);
 
         // partHeart.addEventListener('click', function () {
         //   pickColor(partHeart);
